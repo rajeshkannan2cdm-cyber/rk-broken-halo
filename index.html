@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RK BROKEN HALO — Editor • Creator</title>
+  <meta name="description" content="RK Broken Halo — Anime edits, movie edits, cinematic edits and creative content. Editor. Creator. Code. Create. Break Limits." />
+  <meta name="keywords" content="RK Broken Halo, video editor, anime edits, movie edits, cinematic edits, short-form content, CapCut, Alight Motion" />
+  <meta name="author" content="RK Broken Halo" />
+  <meta property="og:title" content="RK BROKEN HALO — Editor • Creator" />
+  <meta property="og:description" content="I don't just edit. I create the moment." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+    <span class="cursor-label" id="cursorLabel"></span>
+  </div>
+
+  <!-- Film Grain -->
+  <canvas class="film-grain" id="grainCanvas" aria-hidden="true"></canvas>
+
+  <!-- Loader -->
+  <div class="loader" id="loader" role="status" aria-label="Loading">
+    <div class="loader-body">
+      <div class="loader-logo">
+        <span class="l-rk">RK</span>
+        <span class="l-bh">BROKEN HALO</span>
+      </div>
+      <p class="loader-sub">CODE. CREATE. BREAK LIMITS.</p>
+      <div class="loader-track">
+        <div class="loader-fill" id="loaderFill"></div>
+      </div>
+      <span class="loader-pct" id="loaderPct">0%</span>
+    </div>
+  </div>
+
+  <!-- ══ NAVIGATION ══ -->
+  <header class="nav" id="nav" role="banner">
+    <div class="nav-wrap">
+      <a href="#hero" class="nav-logo" aria-label="RK Broken Halo — home">
+        <span class="nav-logo-rk">RK</span>
+        <span class="nav-logo-bh">BROKEN HALO</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Primary navigation">
+        <a href="#hero"    class="nav-a" id="nl-home">HOME</a>
+        <a href="#about"   class="nav-a" id="nl-about">ABOUT</a>
+        <a href="#edits"   class="nav-a" id="nl-edits">FEATURED EDITS</a>
+        <a href="#toolkit" class="nav-a" id="nl-toolkit">MY TOOLKIT</a>
+        <a href="#youtube" class="nav-a" id="nl-youtube">YOUTUBE</a>
+        <a href="#contact" class="nav-a" id="nl-contact">CONTACT</a>
+      </nav>
+
+      <div class="nav-end">
+        <a href="https://youtube.com/@rk._brokenhalo" target="_blank" rel="noopener noreferrer" class="nav-yt" id="nav-yt-link">
+          YOUTUBE <span class="ext-arrow">↗</span>
+        </a>
+        <button class="burger" id="burger" aria-label="Toggle mobile menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mob-menu" id="mobMenu" aria-hidden="true">
+    <nav class="mob-menu-nav" aria-label="Mobile navigation">
+      <a href="#hero"    class="mob-a">HOME</a>
+      <a href="#about"   class="mob-a">ABOUT</a>
+      <a href="#edits"   class="mob-a">FEATURED EDITS</a>
+      <a href="#toolkit" class="mob-a">MY TOOLKIT</a>
+      <a href="#youtube" class="mob-a">YOUTUBE</a>
+      <a href="#contact" class="mob-a">CONTACT</a>
+      <a href="https://youtube.com/@rk._brokenhalo" target="_blank" rel="noopener noreferrer" class="mob-a mob-yt">YOUTUBE ↗</a>
+    </nav>
+  </div>
+
+  <!-- ══ MAIN ══ -->
+  <main id="smooth-wrapper">
+
+    <!-- ▌HERO ▐ -->
+    <section class="hero" id="hero" aria-labelledby="hero-heading">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-vignette"></div>
+        <div class="hero-glow-r"></div>
+        <div class="hero-glow-b"></div>
+        <div class="hero-particles" id="heroParticles"></div>
+      </div>
+
+      <div class="hero-inner">
+        <div class="hero-eyebrow" data-reveal>EDITOR • CREATOR</div>
+        <h1 class="hero-title" id="hero-heading">
+          <div class="reveal-line"><span data-reveal>RK</span></div>
+          <div class="reveal-line"><span data-reveal>BROKEN HALO</span></div>
+        </h1>
+        <p class="hero-stmt" data-reveal>
+          "I DON'T JUST EDIT.<br>
+          <em>I CREATE THE MOMENT.</em>"
+        </p>
+        <div class="hero-btns" data-reveal>
+          <a href="#edits"   class="btn btn-red"     id="hero-explore-btn" data-magnetic>EXPLORE MY EDITS <span class="btn-arr">→</span></a>
+          <a href="https://youtube.com/@rk._brokenhalo" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" id="hero-watch-btn" data-magnetic>WATCH MY CHANNEL <span class="btn-arr">→</span></a>
+        </div>
+      </div>
+
+      <div class="hero-scroll" data-reveal aria-label="Scroll down">
+        <span class="scroll-label">SCROLL TO ENTER</span>
+        <span class="scroll-arr">↓</span>
+      </div>
+    </section>
+
+    <!-- ▌ABOUT ▐ -->
+    <section class="section" id="about" aria-labelledby="about-heading">
+      <div class="wrap">
+        <p class="sec-label" data-reveal>// ABOUT</p>
+        <h2 class="sec-h" id="about-heading" data-reveal>
+          ABOUT <span class="c-red">RK</span>
+        </h2>
+        <div class="about-grid">
+          <div class="about-bio" data-reveal>
+            <p>
+              I'm <strong class="glow-red">RK</strong> — a video editor and content creator passionate about
+              <span class="c-red">Anime Edits</span>, <span class="c-red">Movie Edits</span>,
+              <span class="c-red">Cinematic Edits</span> and <span class="c-red">Short-Form Edits</span>.
+            </p>
+          </div>
+          <div class="about-words">
+            <div class="about-word" data-reveal>
+              <span class="aw-num">01</span>
+              <span class="aw-txt">EDIT</span>
+            </div>
+            <div class="about-word" data-reveal>
+              <span class="aw-num">02</span>
+              <span class="aw-txt">CREATE</span>
+            </div>
+            <div class="about-word" data-reveal>
+              <span class="aw-num">03</span>
+              <span class="aw-txt">BREAK LIMITS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▌MY EDITING WORLD ▐ -->
+    <section class="section section-dark" id="world" aria-labelledby="world-heading">
+      <div class="wrap">
+        <p class="sec-label" data-reveal>// EDITING</p>
+        <h2 class="sec-h" id="world-heading" data-reveal>
+          MY EDITING <span class="c-red">WORLD</span>
+        </h2>
+        <div class="world-grid">
+
+          <article class="world-card" data-reveal data-cursor="VIEW" id="wc-anime">
+            <span class="wc-num">01</span>
+            <div class="wc-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <circle cx="24" cy="24" r="18" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M20 17l12 7-12 7V17z" fill="currentColor"/>
+                <path d="M10 10l4 4M38 10l-4 4M10 38l4-4M38 38l-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="wc-title">ANIME EDITS</h3>
+            <ul class="wc-list">
+              <li>Beat synchronization</li>
+              <li>Smooth transitions</li>
+              <li>Velocity effects</li>
+              <li>Cinematic color grading</li>
+              <li>Impact effects</li>
+              <li>Typography overlays</li>
+              <li>Music synchronization</li>
+            </ul>
+            <div class="wc-bar"></div>
+          </article>
+
+          <article class="world-card" data-reveal data-cursor="VIEW" id="wc-movie">
+            <span class="wc-num">02</span>
+            <div class="wc-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <rect x="6" y="10" width="36" height="28" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M6 16h36M6 32h36" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M16 10v6M32 10v6M16 32v6M32 32v6" stroke="currentColor" stroke-width="1.5"/>
+              </svg>
+            </div>
+            <h3 class="wc-title">MOVIE EDITS</h3>
+            <ul class="wc-list">
+              <li>Cinematic transitions</li>
+              <li>Color grading</li>
+              <li>Dramatic effects</li>
+              <li>Beat sync</li>
+              <li>Slow-motion effects</li>
+              <li>Scene transitions</li>
+              <li>Sound effects</li>
+            </ul>
+            <div class="wc-bar"></div>
+          </article>
+
+          <article class="world-card" data-reveal data-cursor="VIEW" id="wc-cinematic">
+            <span class="wc-num">03</span>
+            <div class="wc-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <path d="M8 24h32M24 8v32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M6 12l4 4M38 12l-4 4M6 36l4-4M38 36l-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="wc-title">CINEMATIC EDITS</h3>
+            <ul class="wc-list">
+              <li>Music-driven visuals</li>
+              <li>Speed ramping</li>
+              <li>Motion effects</li>
+              <li>Color grading</li>
+              <li>Visual effects</li>
+              <li>Cinematic transitions</li>
+            </ul>
+            <div class="wc-bar"></div>
+          </article>
+
+          <article class="world-card" data-reveal data-cursor="VIEW" id="wc-shorts">
+            <span class="wc-num">04</span>
+            <div class="wc-icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <rect x="14" y="4" width="20" height="40" rx="3" stroke="currentColor" stroke-width="1.5"/>
+                <path d="M20 40h8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M21 20l8 4-8 4V20z" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3 class="wc-title">SHORT-FORM EDITS</h3>
+            <ul class="wc-list">
+              <li>YouTube Shorts</li>
+              <li>Instagram Reels</li>
+              <li>TikTok-style vertical</li>
+              <li>Fast pacing</li>
+              <li>Strong opening moments</li>
+              <li>Beat synchronization</li>
+            </ul>
+            <div class="wc-bar"></div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ▌MY TOOLKIT ▐ -->
+    <section class="section" id="toolkit" aria-labelledby="toolkit-heading">
+      <div class="wrap">
+        <p class="sec-label" data-reveal>// TOOLKIT</p>
+        <h2 class="sec-h" id="toolkit-heading" data-reveal>
+          MY <span class="c-red">TOOLKIT</span>
+        </h2>
+        <div class="toolkit-grid">
+
+          <article class="tk-card" data-reveal id="tk-capcut" data-cursor="EXPLORE">
+            <div class="tk-card-inner">
+              <div class="tk-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none">
+                  <rect width="64" height="64" rx="14" fill="currentColor" opacity="0.08"/>
+                  <path d="M20 32a12 12 0 1 1 24 0 12 12 0 0 1-24 0z" stroke="currentColor" stroke-width="2"/>
+                  <path d="M29 27l10 5-10 5V27z" fill="currentColor"/>
+                  <path d="M44 20l4-4M44 44l4 4M20 20l-4-4M20 44l-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 class="tk-name">CAPCUT</h3>
+              <p class="tk-role">Main Editing App</p>
+              <ul class="tk-uses">
+                <li>Video editing</li>
+                <li>Transitions &amp; effects</li>
+                <li>Beat sync</li>
+                <li>Velocity editing</li>
+                <li>Color adjustments</li>
+                <li>Short-form content</li>
+              </ul>
+              <div class="tk-glow" aria-hidden="true"></div>
+            </div>
+          </article>
+
+          <article class="tk-card" data-reveal id="tk-alight" data-cursor="EXPLORE">
+            <div class="tk-card-inner">
+              <div class="tk-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none">
+                  <rect width="64" height="64" rx="14" fill="currentColor" opacity="0.08"/>
+                  <path d="M32 12v40M12 32h40" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="32" cy="32" r="8" stroke="currentColor" stroke-width="2"/>
+                  <circle cx="32" cy="32" r="3" fill="currentColor"/>
+                  <path d="M22 22l4 4M42 22l-4 4M22 42l4-4M42 42l-4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 class="tk-name">ALIGHT MOTION</h3>
+              <p class="tk-role">Motion Graphics</p>
+              <ul class="tk-uses">
+                <li>Motion effects</li>
+                <li>Keyframe animation</li>
+                <li>Text animation</li>
+                <li>Visual effects</li>
+                <li>Advanced transitions</li>
+              </ul>
+              <div class="tk-glow" aria-hidden="true"></div>
+            </div>
+          </article>
+
+          <article class="tk-card" data-reveal id="tk-picsart" data-cursor="EXPLORE">
+            <div class="tk-card-inner">
+              <div class="tk-icon" aria-hidden="true">
+                <svg viewBox="0 0 64 64" fill="none">
+                  <rect width="64" height="64" rx="14" fill="currentColor" opacity="0.08"/>
+                  <path d="M20 44L32 12l12 32" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M24 36h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="44" cy="22" r="6" stroke="currentColor" stroke-width="1.5"/>
+                  <path d="M44 19v6M41 22h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <h3 class="tk-name">PICSART</h3>
+              <p class="tk-role">Creative Graphics</p>
+              <ul class="tk-uses">
+                <li>Thumbnails</li>
+                <li>Image editing</li>
+                <li>Posters &amp; graphics</li>
+                <li>Photo manipulation</li>
+                <li>Creative visuals</li>
+              </ul>
+              <div class="tk-glow" aria-hidden="true"></div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ▌SELECTED EDITS ▐ -->
+    <section class="section section-dark" id="edits" aria-labelledby="edits-heading">
+      <div class="wrap">
+        <p class="sec-label" data-reveal>// PORTFOLIO</p>
+        <h2 class="sec-h" id="edits-heading" data-reveal>
+          FEATURED <span class="c-red">EDITS</span>
+        </h2>
+        <div class="edits-grid">
+
+          <article class="edit-card ec-wide" data-reveal data-cursor="WATCH" id="ec-01">
+            <div class="ec-media">
+              <div class="ec-media-bg ec-bg-anime"></div>
+              <div class="ec-overlay"></div>
+              <div class="ec-play-icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1"/><path d="M16 13l14 7-14 7V13z" fill="currentColor"/></svg>
+              </div>
+            </div>
+            <div class="ec-info">
+              <span class="ec-num">EDIT 01</span>
+              <h3 class="ec-title">ANIME EDIT</h3>
+              <div class="ec-tags">
+                <span class="ec-tag">ANIME</span>
+                <span class="ec-tag">BEAT SYNC</span>
+              </div>
+              <span class="ec-style">Velocity · Color Grading · Impact Effects</span>
+              <a href="#" class="ec-link">WATCH EDIT <span>→</span></a>
+            </div>
+            <div class="ec-glow" aria-hidden="true"></div>
+          </article>
+
+          <article class="edit-card" data-reveal data-cursor="WATCH" id="ec-02">
+            <div class="ec-media">
+              <div class="ec-media-bg ec-bg-movie"></div>
+              <div class="ec-overlay"></div>
+              <div class="ec-play-icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1"/><path d="M16 13l14 7-14 7V13z" fill="currentColor"/></svg>
+              </div>
+            </div>
+            <div class="ec-info">
+              <span class="ec-num">EDIT 02</span>
+              <h3 class="ec-title">MOVIE EDIT</h3>
+              <div class="ec-tags">
+                <span class="ec-tag">MOVIES</span>
+                <span class="ec-tag">DRAMATIC</span>
+              </div>
+              <span class="ec-style">Cinematic Transitions · Color · Slow-Mo</span>
+              <a href="#" class="ec-link">WATCH EDIT <span>→</span></a>
+            </div>
+            <div class="ec-glow" aria-hidden="true"></div>
+          </article>
+
+          <article class="edit-card" data-reveal data-cursor="WATCH" id="ec-03">
+            <div class="ec-media">
+              <div class="ec-media-bg ec-bg-cinematic"></div>
+              <div class="ec-overlay"></div>
+              <div class="ec-play-icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1"/><path d="M16 13l14 7-14 7V13z" fill="currentColor"/></svg>
+              </div>
+            </div>
+            <div class="ec-info">
+              <span class="ec-num">EDIT 03</span>
+              <h3 class="ec-title">CINEMATIC EDIT</h3>
+              <div class="ec-tags">
+                <span class="ec-tag">CINEMATIC</span>
+                <span class="ec-tag">SPEED RAMP</span>
+              </div>
+              <span class="ec-style">Motion Effects · VFX · Color Grading</span>
+              <a href="#" class="ec-link">WATCH EDIT <span>→</span></a>
+            </div>
+            <div class="ec-glow" aria-hidden="true"></div>
+          </article>
+
+          <article class="edit-card ec-wide" data-reveal data-cursor="WATCH" id="ec-04">
+            <div class="ec-media">
+              <div class="ec-media-bg ec-bg-shorts"></div>
+              <div class="ec-overlay"></div>
+              <div class="ec-play-icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="19" stroke="currentColor" stroke-width="1"/><path d="M16 13l14 7-14 7V13z" fill="currentColor"/></svg>
+              </div>
+            </div>
+            <div class="ec-info">
+              <span class="ec-num">EDIT 04</span>
+              <h3 class="ec-title">SHORT-FORM EDIT</h3>
+              <div class="ec-tags">
+                <span class="ec-tag">SOCIAL MEDIA</span>
+                <span class="ec-tag">REELS</span>
+              </div>
+              <span class="ec-style">Vertical · Fast Paced · Beat Sync</span>
+              <a href="#" class="ec-link">WATCH EDIT <span>→</span></a>
+            </div>
+            <div class="ec-glow" aria-hidden="true"></div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ▌YOUTUBE CREATOR ▐ -->
+    <section class="section" id="youtube" aria-labelledby="yt-heading">
+      <div class="wrap">
+        <p class="sec-label" data-reveal>// YOUTUBE</p>
+        <h2 class="sec-h" id="yt-heading" data-reveal>
+          WATCH THE <span class="c-red">EDITS</span>
+        </h2>
+        <div class="yt-block" data-reveal>
+          <div class="yt-left">
+            <div class="yt-ch-row">
+              <div class="yt-avatar" aria-label="RK Broken Halo avatar">
+                <img src="avatar.jpeg" alt="RK Broken Halo" class="yt-avatar-img" />
+              </div>
+              <div>
+                <strong class="yt-ch-name">RK BROKEN HALO</strong>
+                <span class="yt-handle">@rk._brokenhalo</span>
+              </div>
+            </div>
+            <p class="yt-desc">Anime edits, movie edits, cinematic edits and creative videos.</p>
+            <a href="https://youtube.com/@rk._brokenhalo" target="_blank" rel="noopener noreferrer" class="btn btn-red btn-lg" id="yt-watch-btn" data-magnetic>
+              WATCH ON YOUTUBE <span class="btn-arr">→</span>
+            </a>
+          </div>
+          <div class="yt-right">
+            <a href="https://youtube.com/@rk._brokenhalo" target="_blank" rel="noopener noreferrer" class="yt-player" id="yt-player" data-cursor="PLAY" aria-label="Visit RK Broken Halo on YouTube">
+              <div class="yt-player-inner">
+                <div class="yt-play-btn" aria-hidden="true">
+                  <svg viewBox="0 0 68 48">
+                    <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/>
+                    <path d="M27 34l18-10-18-10v20z" fill="#fff"/>
+                  </svg>
+                </div>
+                <span class="yt-tap">TAP TO WATCH</span>
+              </div>
+            </a>
+            <div class="yt-thumbs">
+              <div class="yt-thumb" data-cursor="WATCH">
+                <div class="yt-thumb-bg ytb-1"></div>
+                <span>Anime Edit</span>
+              </div>
+              <div class="yt-thumb" data-cursor="WATCH">
+                <div class="yt-thumb-bg ytb-2"></div>
+                <span>Movie Edit</span>
+              </div>
+              <div class="yt-thumb" data-cursor="WATCH">
+                <div class="yt-thumb-bg ytb-3"></div>
+                <span>Cinematic</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▌HORIZONTAL SHOWCASE ▐ -->
+    <section class="section section-dark showcase-section" id="showcase" aria-labelledby="showcase-heading">
+      <div class="wrap">
+        <p class="sec-label" data-reveal>// SHOWCASE</p>
+        <h2 class="sec-h" id="showcase-heading" data-reveal>
+          EDIT. POST. <span class="c-red">REPEAT.</span>
+        </h2>
+      </div>
+      <div class="showcase-track-wrap" data-reveal>
+        <div class="showcase-track" id="showcaseTrack" role="list">
+          <div class="sc-item" role="listitem" data-cursor="VIEW">
+            <div class="sc-media sc-anime" aria-label="Anime edits showcase"></div>
+            <div class="sc-label">
+              <span class="sc-num">01</span>
+              <span class="sc-name">ANIME</span>
+            </div>
+          </div>
+          <div class="sc-item" role="listitem" data-cursor="VIEW">
+            <div class="sc-media sc-movies" aria-label="Movie edits showcase"></div>
+            <div class="sc-label">
+              <span class="sc-num">02</span>
+              <span class="sc-name">MOVIES</span>
+            </div>
+          </div>
+          <div class="sc-item" role="listitem" data-cursor="VIEW">
+            <div class="sc-media sc-cine" aria-label="Cinematic edits showcase"></div>
+            <div class="sc-label">
+              <span class="sc-num">03</span>
+              <span class="sc-name">CINEMATIC</span>
+            </div>
+          </div>
+          <div class="sc-item" role="listitem" data-cursor="VIEW">
+            <div class="sc-media sc-shorts" aria-label="Short-form edits showcase"></div>
+            <div class="sc-label">
+              <span class="sc-num">04</span>
+              <span class="sc-name">SHORTS</span>
+            </div>
+          </div>
+        </div>
+        <div class="showcase-hint" aria-label="Drag to scroll">← DRAG TO EXPLORE →</div>
+      </div>
+    </section>
+
+    <!-- ▌FEATURED STATEMENT ▐ -->
+    <section class="section stmt-section" id="statement" aria-label="Featured statement">
+      <div class="stmt-bg-txt" aria-hidden="true">BROKEN HALO</div>
+      <div class="stmt-inner">
+        <div class="stmt-line reveal-line" data-reveal><span>"EVERY FRAME</span></div>
+        <div class="stmt-line reveal-line" data-reveal><span>MATTERS<span class="c-red">.</span>"</span></div>
+        <div class="stmt-div" data-reveal></div>
+        <div class="stmt-line stmt-line-b reveal-line" data-reveal><span>"EVERY EDIT</span></div>
+        <div class="stmt-line stmt-line-b reveal-line" data-reveal><span>HAS <span class="c-red">ENERGY</span>."</span></div>
+      </div>
+    </section>
+
+    <!-- ▌CREATOR SECTION ▐ -->
+    <section class="section" id="creator" aria-labelledby="creator-heading">
+      <div class="wrap">
+        <p class="sec-label" data-reveal>// CREATOR</p>
+        <h2 class="sec-h" id="creator-heading" data-reveal>
+          RK <span class="c-red">BROKEN HALO</span>
+        </h2>
+        <div class="creator-grid">
+          <div class="creator-left" data-reveal>
+            <p class="creator-role-tag">EDITOR • CREATOR</p>
+            <p class="creator-desc">Creating anime edits, movie edits and cinematic content using mobile editing tools.</p>
+            <a href="#edits" class="btn btn-red" id="creator-edits-btn" data-magnetic>WATCH MY EDITS <span class="btn-arr">→</span></a>
+          </div>
+          <div class="creator-right" data-reveal>
+            <div class="creator-media" aria-label="Creator profile">
+              <div class="creator-media-inner">
+                <img src="avatar.jpeg" alt="RK Broken Halo" class="creator-img" />
+                <div class="creator-media-overlay" aria-hidden="true"></div>
+              </div>
+              <div class="creator-frame" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▌SOCIAL ▐ -->
+    <section class="section section-dark" id="social" aria-labelledby="social-heading">
+      <div class="wrap">
+        <p class="sec-label" data-reveal>// CONNECT</p>
+        <h2 class="sec-h" id="social-heading" data-reveal>
+          FOLLOW <span class="c-red">RK BROKEN HALO</span>
+        </h2>
+        <div class="social-list" role="list">
+          <a href="https://youtube.com/@rk._brokenhalo" target="_blank" rel="noopener noreferrer" class="soc-link" role="listitem" data-reveal data-cursor="OPEN">
+            <span class="soc-name">YOUTUBE</span>
+            <span class="soc-handle">RK Broken Halo — @rk._brokenhalo</span>
+            <span class="soc-arr">↗</span>
+          </a>
+          <a href="#" class="soc-link" role="listitem" data-reveal data-cursor="OPEN">
+            <span class="soc-name">INSTAGRAM</span>
+            <span class="soc-handle">@rk._brokenhalo</span>
+            <span class="soc-arr">↗</span>
+          </a>
+          <a href="#" class="soc-link" role="listitem" data-reveal data-cursor="OPEN">
+            <span class="soc-name">PICSART</span>
+            <span class="soc-handle">RK Broken Halo</span>
+            <span class="soc-arr">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▌CONTACT ▐ -->
+    <section class="section" id="contact" aria-labelledby="contact-heading">
+      <div class="wrap">
+        <p class="sec-label" data-reveal>// CONTACT</p>
+        <h2 class="contact-h" id="contact-heading" data-reveal>
+          HAVE A CLIP?<br>LET'S <span class="c-red">EDIT IT.</span>
+        </h2>
+        <p class="contact-sub" data-reveal>Have an anime scene, movie clip or creative idea? Let's turn it into an edit.</p>
+        <div class="contact-grid">
+          <div class="contact-left" data-reveal>
+            <div class="contact-btns">
+              <a href="#contact-form" class="btn btn-red btn-lg" id="contact-start-btn" data-magnetic>START A PROJECT <span class="btn-arr">→</span></a>
+              <a href="#edits"        class="btn btn-ghost btn-lg" id="contact-watch-btn" data-magnetic>WATCH MY EDITS <span class="btn-arr">→</span></a>
+            </div>
+          </div>
+          <form class="contact-form" id="contact-form" data-reveal novalidate>
+            <div class="form-row">
+              <label for="c-name">NAME</label>
+              <input type="text"  id="c-name"  name="name"  placeholder="Your name"     autocomplete="name"  required />
+            </div>
+            <div class="form-row">
+              <label for="c-email">EMAIL</label>
+              <input type="email" id="c-email" name="email" placeholder="your@email.com" autocomplete="email" required />
+            </div>
+            <div class="form-row">
+              <label for="c-details">MESSAGE</label>
+              <textarea id="c-details" name="details" rows="5" placeholder="Tell me about your clip, project, or edit idea..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-red btn-lg" id="contact-send-btn" data-magnetic>
+              SEND MESSAGE <span class="btn-arr">→</span>
+            </button>
+            <div class="form-feedback" id="form-feedback" style="display:none; margin-top: 12px; font-size: 0.85rem; letter-spacing: 0.05em; font-family: var(--font-m, sans-serif);"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ▌FOOTER ▐ -->
+    <footer class="footer" id="footer" role="contentinfo">
+      <div class="wrap">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="footer-logo">
+              <span class="ft-rk">RK</span>
+              <span class="ft-bh">BROKEN HALO</span>
+            </div>
+            <p class="ft-sub">EDITOR • CREATOR</p>
+            <p class="ft-motto">CODE. CREATE. BREAK LIMITS.</p>
+          </div>
+          <nav class="footer-links" aria-label="Footer social links">
+            <a href="https://youtube.com/@rk._brokenhalo" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a href="#">Instagram</a>
+            <a href="#">Picsart</a>
+          </nav>
+        </div>
+        <div class="footer-bottom">
+          <span>© 2026 RK Broken Halo</span>
+          <a href="#hero" class="back-top" data-magnetic aria-label="Back to top">BACK TO TOP <span>↑</span></a>
+        </div>
+      </div>
+    </footer>
+
+  </main><!-- /#smooth-wrapper -->
+
+  <!-- ══ VIDEO PREVIEW MODAL ══ -->
+  <div class="video-modal" id="videoModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-dialog">
+      <button class="modal-close" id="modalCloseBtn" aria-label="Close preview">✕</button>
+      <div class="modal-media-wrap">
+        <div class="modal-media" id="modalMedia">
+          <a href="https://youtube.com/@rk._brokenhalo" target="_blank" rel="noopener noreferrer" class="modal-play-badge" id="modalMediaPlay" aria-label="Play video on YouTube">
+            <svg viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M27 34l18-10-18-10v20z" fill="#fff"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-meta">
+          <span class="modal-cat" id="modalCategory">ANIME EDIT</span>
+          <span class="modal-tools" id="modalTools">CapCut • Alight Motion</span>
+        </div>
+        <h3 class="modal-title" id="modalTitle">ANIME EDIT</h3>
+        <p class="modal-desc" id="modalDesc">High-octane anime sequence synchronized with heavy beat timing...</p>
+        <div class="modal-actions">
+          <a href="https://youtube.com/@rk._brokenhalo" target="_blank" rel="noopener noreferrer" class="btn btn-red btn-lg" id="modalYtBtn" data-magnetic>
+            WATCH ON YOUTUBE <span class="btn-arr">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CDN SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
