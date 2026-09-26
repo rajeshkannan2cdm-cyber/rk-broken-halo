@@ -1,3 +1,26 @@
 node_modules/
 .env
 backend/.env
+
+# Node.js logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build/cache files
+dist/
+build/
+.cache/
+.vite/
+.next/
+.nuxt/
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
